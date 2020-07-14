@@ -1,0 +1,9 @@
+summary: Library with various utility functions for sos tests
+contact:
+- David Kutalek <dkutalek@redhat.com>
+component:
+- sos
+require:
+- sos
+test: ./runtest.sh
+duration: 5m

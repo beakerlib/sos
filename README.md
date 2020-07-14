@@ -1,1 +1,2 @@
 # sos
+The sos library
