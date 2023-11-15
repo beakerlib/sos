@@ -279,7 +279,7 @@ true <<'=cut'
 Generates reusable sosreport with given params and namespace,
 or just return already created one if possible.
 
-    sosReport "sosreport params" [namespace] [no-unfake] [exit-value]
+    sosReport "sos report params" [namespace] [no-unfake] [exit-value]
 
 Notes:
 
@@ -292,7 +292,7 @@ Notes:
 
 =over
 
-=item "sosreport params"
+=item "sos report params"
 
 This is a string with parameters for sosreport itself.
 It has to be formally one parameter, therefore usually quotes needed.
@@ -437,9 +437,9 @@ sosReport() {
     set -o pipefail
     # choose a way of running sosreport
     if echo "$params" | grep -- '--batch'; then
-        local sos_cmd="sosreport $params < /dev/null 2>&1 | tee $sos_output"
+        local sos_cmd="sos report $params < /dev/null 2>&1 | tee $sos_output"
     else
-        local sos_cmd="echo -e '\ntester\n123\n' | sosreport $params 2>&1 | tee $sos_output"
+        local sos_cmd="echo -e '\ntester\n123\n' | sos report $params 2>&1 | tee $sos_output"
     fi
     sosLog "sosReport: Executing \"$sos_cmd\""
     rlRun "$sos_cmd" $exitvalue "sosReport: generating new report"
