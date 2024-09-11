@@ -443,7 +443,7 @@ sosReport() {
     fi
     sosLog "sosReport: Executing \"$sos_cmd\""
     rlRun "$sos_cmd" $exitvalue "sosReport: generating new report"
-    sos_REPORT=$(cat $sos_output | sed -n '/Your sosreport has been generated and saved in:/,+1p' | grep '/sosreport-.*tar.*' | sed 's/^[ \t]*//')
+    sos_REPORT=$(cat $sos_output | sed -n '/Your sos \?report has been generated and saved in:/,+1p' | grep '/sosreport-.*tar.*' | sed 's/^[ \t]*//')
     [ $? = 0 ] || {
         sosLog "sosReport: Generated sosreport not recognized from sosreport output!"
         sos_REPORT=''
