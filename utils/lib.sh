@@ -83,6 +83,29 @@ any scenario for multi-test queues.
 #   Variables
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+true <<'=cut'
+=pod
+
+=head1 VARIABLES
+
+=over
+
+=item sosBINARY
+
+Global variable to store binary that sos currently uses. Due to gradual deprecation
+of sosreport binary and it's replacement by sos binary, we need to determine which one
+should be used in rlAssetBinaryOrigin function from beakerlib.
+
+=back
+
+=cut
+
+if [ -f "/usr/sbin/sos" ]; then
+    sosBINARY="sos"
+else
+    sosBINARY="sosreport"
+fi
+
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #   Functions
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
